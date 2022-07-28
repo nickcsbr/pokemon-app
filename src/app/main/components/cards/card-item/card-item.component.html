@@ -1,9 +1,4 @@
-<!-- <div class="card">
-    <h3>{{ card.name }}</h3>
-    <p>{{ card.id }}</p>
-  </div> -->
-
-<div *ngIf="card" class='card'>
+<div *ngIf="card" class='card' (click)="openCardDetails()">
   <div class='card_left'>
     <img src='{{ card.images.small }}' alt="{{ card.name }}">
   </div>
@@ -13,6 +8,5 @@
     <div *ngFor="let type of card.types">
       <span>{{ type }} <mat-icon class="material-icons-outlined">{{ type | type }}</mat-icon></span>
     </div>
-
   </div>
 </div>

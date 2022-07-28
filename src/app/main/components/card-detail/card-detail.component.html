@@ -1,1 +1,27 @@
-<p>card-detail works! {{ id }} </p>
+<div *ngIf="card" class='card'>
+  <div class='card_left'>
+    <img src='{{ card.images.large }}' alt="{{ card.name }}">
+  </div>
+  <div class='card_right'>
+    <h1>{{ card.name }}</h1>
+    <p>{{ card.id }}</p>
+    <div *ngFor="let type of card.types">
+      <span>{{ type }} <mat-icon class="material-icons-outlined">{{ type | type }}</mat-icon></span>
+    </div>
+
+    <div *ngFor="let attack of card.attacks">
+        {{ attack.name }}
+        {{ attack.damage }}
+        {{ attack.convertedEnergyCost }}
+        {{ attack.text }}
+    </div>
+    <div *ngFor="let weakness of card.weaknesses">
+        {{ weakness.type }}
+        {{ weakness.value }}
+    </div>
+    <div *ngFor="let resistance of card.resistances">
+        {{ resistance.type }}
+        {{ resistance.value }}
+    </div>
+  </div>
+</div>

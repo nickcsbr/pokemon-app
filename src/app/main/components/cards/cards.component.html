@@ -1,5 +1,10 @@
-<app-card-item *ngFor="let card of cards | orderBy: 'name'" [card]="card"></app-card-item>
-<!-- 
-<cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-    <div *cdkVirtualFor="let card of cards | orderBy: 'name'" class="card-item">{{card.name}}</div>
-  </cdk-virtual-scroll-viewport> -->
+<mat-card class="flex">
+  <div class="scrollable">
+    <app-card-item *ngFor="let card of pagedData.data | orderBy: 'name'"[card]="card"></app-card-item>
+  </div>
+</mat-card>
+
+<mat-paginator [pageSize]="pagedData.pageSize" [length]="pagedData.totalCount"></mat-paginator>
+     
+
+

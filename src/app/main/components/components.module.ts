@@ -10,11 +10,11 @@ import { CardsComponent } from './cards/cards.component';
   declarations: [
     CardsComponent,
     CardItemComponent,
-    CardDetailComponent,
+    CardDetailComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
     CardsComponent,
