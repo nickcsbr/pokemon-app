@@ -4,7 +4,109 @@ mat-toolbar {
   align-items: center;
   margin-bottom: 20px;
   position: sticky;
-  position: -webkit-sticky; /* For macOS/iOS Safari */
-  top: 0; /* Sets the sticky toolbar to be on top */
-  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  position: -webkit-sticky;
+  height: 80px;
+  top: 0;
+  z-index: 1000;
+}
+
+span {
+  cursor: pointer;
+  font-size: 23;
+}
+
+.search {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 25px;
+  border-radius: 25px;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+}
+
+.btn {
+  border-radius: 50%;
+  background: #ffffff;
+  color: #2471A3;
+  float: right;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #2471A3;
+  font-size: 16px;
+  transition: 0.6s;
+  line-height: 25px;
+  width: 0px;
+}
+
+::placeholder {
+  padding-left: 15px;
+  color: #ddd;
+}
+
+.search:hover>.text {
+  width: 350px;
+  padding: 0 5px;
+  transition: 0.4s;
+}
+
+@media(max-width: 841px) {
+  .search:hover>.text {
+    width: 300px;
+  }
+}
+
+@media(max-width: 740px) {
+  .search:hover>.text {
+    width: 250px;
+  }
+}
+
+@media(max-width: 640px) {
+  .search:hover>.text {
+    width: 200px;
+  }
+}
+
+@media(max-width: 540px) {
+  .search:hover>.text {
+    width: 160px;
+  }
+
+  .text {
+    line-height: 25px;
+  }
+
+  .search {
+    height: 25px;
+  }
+
+  .btn {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media(max-width: 461px) {
+  .search:hover>.text {
+    width: 140px;
+  }
+}
+
+@media(max-width: 401px) {
+  .search:hover>.text {
+    width: 110px;
+  }
 }

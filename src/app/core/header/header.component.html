@@ -1,7 +1,15 @@
 <mat-toolbar class="mat-elevation-z8" color="primary">
-  <span>Pokémon Cards</span>
+  <span routerLinkActive="active" [routerLink]="['/']">Pokémon Cards</span>
+  
   <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>search</mat-icon>
-  </button>
+
+
+  <div class="search">
+    <input type="text" name="" placeholder="Search" class="text">
+    <!-- <a href="#" class="btn"><i class="fa fa-search "></i></a> -->
+    <button mat-icon-button class="btn" aria-label="Example icon-button with share icon">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+
 </mat-toolbar>
