@@ -1,0 +1,5 @@
+<app-card-item *ngFor="let card of cards | orderBy: 'name'" [card]="card"></app-card-item>
+<!-- 
+<cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+    <div *cdkVirtualFor="let card of cards | orderBy: 'name'" class="card-item">{{card.name}}</div>
+  </cdk-virtual-scroll-viewport> -->

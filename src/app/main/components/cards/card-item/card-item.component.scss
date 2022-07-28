@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  justify-content: left;
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  img {
+    height: 25vh;
+  }
+}
+
+.card_right {
+    padding-left: 20px;
+}
+
+.card.reminder {
+  border-left: 5px solid green;
+}
+
+.card h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
