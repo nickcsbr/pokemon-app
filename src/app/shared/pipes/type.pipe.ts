@@ -9,8 +9,8 @@ export class TypePipe implements PipeTransform {
     switch(value) {
       case 'Colorless': return 'star_rate_outline';
       case 'Darkness': return 'dark_mode_outline';
-      case 'Dragon': return 'computer';
-      case 'Fairy': return 'computer';
+      case 'Dragon': return 'temple_buddhist';
+      case 'Fairy': return 'magic_button';
       case 'Fighting': return 'sports_mma';
       case 'Fire': return 'local_fire_department';
       case 'Grass': return 'spa';

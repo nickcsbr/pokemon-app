@@ -3,9 +3,9 @@
     <div class="col-4">
       <app-image-spinner [imageUrl]="card.images.large" [imageName]="card.name"></app-image-spinner>
     </div>
-    <div class="col-8">
+    <div class="col-8 wrapper">
       <h1>{{ card.name }}</h1>
-      <p>{{ card.id }}</p>
+      <p class="id">{{ card.id }}</p>
       <div *ngFor="let type of card.types">
         <app-attribute [name]="type" [icon]="type" color="green"></app-attribute>
       </div>

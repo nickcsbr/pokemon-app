@@ -17,13 +17,18 @@
   display: flex;
   justify-content: left;
   background: #f4f4f4;
-  margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
 }
 
-// .card h3 {
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-// }
+.id {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  text-align: right;
+}
+
+.wrapper {
+  position: relative;
+}

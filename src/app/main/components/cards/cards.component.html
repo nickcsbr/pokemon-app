@@ -1,10 +1,8 @@
-<mat-card class="flex">
-  <div class="scrollable">
-    <app-card-item *ngFor="let card of pagedData.data | orderBy: 'name'"[card]="card"></app-card-item>
+<div class="row">
+  <div *ngFor="let card of pagedData.data | orderBy: 'name'">
+    <div class="col-4">
+      <app-card-item [card]="card"></app-card-item>
+    </div>
   </div>
-</mat-card>
-
+</div>
 <mat-paginator [pageSize]="pagedData.pageSize" [length]="pagedData.totalCount"></mat-paginator>
-     
-
-

@@ -26,7 +26,6 @@ export class CardsComponent implements OnInit, AfterViewInit {
     this.getPage(this.searchItem);
 
     this.messageService.listen().subscribe((m:any) => {
-      console.log(m)
       if(m.message === 'searchUpdated') {
         this.searchItem = 'name:' + m.search;
         this.getPage(this.searchItem);

@@ -22,7 +22,6 @@ export class CardDetailComponent implements OnInit {
       this.id = params.get('id') as string;
     });
     this.cardService.getCard(this.id).subscribe((cardResult) => {
-      console.log(cardResult.data);
       this.card = cardResult.data;
     });
   }

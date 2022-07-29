@@ -5,7 +5,7 @@ export class PagedData<T> {
     count: number;
     totalCount: number;
 
-  constructor( data = new Array<T>(), page = 1, pageSize = 5, count = 0, totalCount = 0) {
+  constructor( data = new Array<T>(), page = 1, pageSize = 6, count = 0, totalCount = 0) {
     this.data = data;
     this.page = page;
     this.pageSize = pageSize;
