@@ -1,3 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
 .card {
   display: flex;
   justify-content: left;
@@ -5,18 +20,10 @@
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
-
-  img {
-    height: 25vh;
-  }
 }
 
-.card_right {
-    padding-left: 20px;
-}
-
-.card h3 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+// .card h3 {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }

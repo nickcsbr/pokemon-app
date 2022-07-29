@@ -16,7 +16,7 @@ export class TypePipe implements PipeTransform {
       case 'Grass': return 'spa';
       case 'Lightning': return 'bolt';
       case 'Metal': return 'hexagon';
-      case 'Psychic': return 'computer';
+      case 'Psychic': return 'visibility';
       case 'Water': return 'water_drop';
     }
     return 'code';

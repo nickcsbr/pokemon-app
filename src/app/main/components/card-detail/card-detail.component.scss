@@ -1,16 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
 .card {
-    display: flex;
-    justify-content: left;
-    background: #f4f4f4;
-    margin: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  
-    img {
-      height: 80vh;
-    }
+  display: inline-block;
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+h3 {
+  margin: 0px;
+  font-weight: bold;
+}
+
+.attributes {
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 10px;
   }
-  
-  .card_right {
-      padding-left: 20px;
-  }
+}

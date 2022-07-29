@@ -8,10 +8,10 @@ import { CardService } from 'src/app/core/services/card.service';
   templateUrl: './card-detail.component.html',
   styleUrls: ['./card-detail.component.scss']
 })
-export class CardDetailComponent implements OnInit, AfterViewInit {
+export class CardDetailComponent implements OnInit {
   id: string = '';
   card: CardDetail | undefined;
-
+  
   constructor(
     private route: ActivatedRoute,
     private cardService: CardService,
@@ -25,12 +25,5 @@ export class CardDetailComponent implements OnInit, AfterViewInit {
       console.log(cardResult.data);
       this.card = cardResult.data;
     });
-  }
-
-  ngAfterViewInit(): void {
-    // this.cardService.getCard(this.id).subscribe((cardResult) => {
-    //   console.log(cardResult.data);
-    //   this.card = cardResult.data;
-    // });
   }
 }

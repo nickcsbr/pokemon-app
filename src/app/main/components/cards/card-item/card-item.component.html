@@ -1,12 +1,19 @@
 <div *ngIf="card" class='card' (click)="openCardDetails()">
-  <div class='card_left'>
-    <img src='{{ card.images.small }}' alt="{{ card.name }}">
-  </div>
-  <div class='card_right'>
-    <h1>{{ card.name }}</h1>
-    <p>{{ card.id }}</p>
-    <div *ngFor="let type of card.types">
-      <span>{{ type }} <mat-icon class="material-icons-outlined">{{ type | type }}</mat-icon></span>
+  <div class="row">
+    <div class='col-4'>
+      <app-image-spinner [imageUrl]="card.images.small" [imageName]="card.name"></app-image-spinner>
+    </div>
+    <div>
+      <div class='col-8' style="position: relative; width: 250px;">
+        <h1>{{ card.name }}</h1>
+        <div style="position: absolute; top: 0; right: 0; width: 100px; text-align:right;">
+          {{ card.id }}
+        </div>
+        <div *ngFor="let type of card.types">
+          <app-attribute [name]="type" [icon]="type" color="green"></app-attribute>
+        </div>
+      </div>
     </div>
   </div>
+
 </div>

@@ -15,6 +15,7 @@ export class CardsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   pagedData: PagedData<Card> = new PagedData<Card>();
+  searchItem: string = '';
 
   constructor(
     private cardService: CardService,
@@ -22,18 +23,19 @@ export class CardsComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPage('');
+    this.getPage(this.searchItem);
 
     this.messageService.listen().subscribe((m:any) => {
       console.log(m)
       if(m.message === 'searchUpdated') {
-        this.performSearch(m.search);
+        this.searchItem = 'name:' + m.search;
+        this.getPage(this.searchItem);
       }
     })
   }
 
   ngAfterViewInit(): void {
-    this.paginator?.page.pipe(tap(() => this.getPage('')))
+    this.paginator?.page.pipe(tap(() => this.getPage(this.searchItem)))
     .subscribe();
   }
 
@@ -42,11 +44,5 @@ export class CardsComponent implements OnInit, AfterViewInit {
     this.cardService.getCards(this.pagedData, searchItem).subscribe((pagedDataResult) => {
       this.pagedData = pagedDataResult;
    });
-  }
-
-  performSearch(searchItem: string) {
-    console.log("Entrei", searchItem)
-    let search = 'name:' + searchItem;
-    this.getPage(search);
   }
 }
