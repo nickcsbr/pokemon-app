@@ -4,6 +4,7 @@ import { tap } from 'rxjs/operators';
 import { Card } from 'src/app/core/models/card';
 import { PagedData } from 'src/app/core/models/paged-data';
 import { CardService } from 'src/app/core/services/card.service';
+import { ComponentMessageService } from 'src/app/core/services/component-message.service';
 
 @Component({
   selector: 'app-cards',
@@ -16,27 +17,36 @@ export class CardsComponent implements OnInit, AfterViewInit {
   pagedData: PagedData<Card> = new PagedData<Card>();
 
   constructor(
-    private cardService: CardService
+    private cardService: CardService,
+    private messageService: ComponentMessageService
   ) { }
 
   ngOnInit(): void {
-    this.getPage();
+    this.getPage('');
+
+    this.messageService.listen().subscribe((m:any) => {
+      console.log(m)
+      if(m.message === 'searchUpdated') {
+        this.performSearch(m.search);
+      }
+    })
   }
 
   ngAfterViewInit(): void {
-    this.paginator?.page.pipe(tap(() => this.getPage()))
+    this.paginator?.page.pipe(tap(() => this.getPage('')))
     .subscribe();
   }
 
-  getPage() {
+  getPage(searchItem: string) {
     this.pagedData.page = this.paginator ? this.paginator.pageIndex + 1 : 1;
-    this.cardService.getCards(this.pagedData, 'name:pikachu').subscribe((pagedDataResult) => {
+    this.cardService.getCards(this.pagedData, searchItem).subscribe((pagedDataResult) => {
       this.pagedData = pagedDataResult;
    });
   }
 
-  nextPage() {
-    this.pagedData.page++;
-    console.log(this.pagedData);
+  performSearch(searchItem: string) {
+    console.log("Entrei", searchItem)
+    let search = 'name:' + searchItem;
+    this.getPage(search);
   }
 }

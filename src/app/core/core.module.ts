@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { HeaderComponent } from './header/header.component';
+import { ComponentMessageService } from './services/component-message.service';
 
 
 @NgModule({
@@ -13,10 +15,14 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule,
     AppMaterialModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent
+  ],
+  providers: [
+    ComponentMessageService
   ]
 })
 export class CoreModule { }
